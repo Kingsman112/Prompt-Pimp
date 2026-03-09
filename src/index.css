@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 6%;
+    --foreground: 60 10% 90%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 60 10% 90%;
+
+    --popover: 220 18% 10%;
+    --popover-foreground: 60 10% 90%;
+
+    --primary: 142 72% 50%;
+    --primary-foreground: 220 20% 6%;
+
+    --secondary: 220 16% 14%;
+    --secondary-foreground: 60 10% 80%;
+
+    --muted: 220 14% 16%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 142 72% 50%;
+    --accent-foreground: 220 20% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 142 72% 50%;
+
+    --radius: 0.75rem;
+
+    --glow-primary: 0 0 20px hsl(142 72% 50% / 0.3);
+    --glow-strong: 0 0 40px hsl(142 72% 50% / 0.2);
+
+    --sidebar-background: 220 18% 8%;
+    --sidebar-foreground: 60 10% 90%;
+    --sidebar-primary: 142 72% 50%;
+    --sidebar-primary-foreground: 220 20% 6%;
+    --sidebar-accent: 220 16% 14%;
+    --sidebar-accent-foreground: 60 10% 90%;
+    --sidebar-border: 220 14% 18%;
+    --sidebar-ring: 142 72% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .glow-border {
+    box-shadow: var(--glow-primary);
+    border-color: hsl(var(--primary));
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px hsl(142 72% 50% / 0.5);
+  }
+
+  .typing-cursor::after {
+    content: '▊';
+    animation: blink 1s step-end infinite;
+    color: hsl(var(--primary));
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px hsl(142 72% 50% / 0.2); }
+    50% { box-shadow: 0 0 20px hsl(142 72% 50% / 0.4); }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
